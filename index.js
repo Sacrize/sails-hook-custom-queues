@@ -33,6 +33,7 @@ module.exports = function (sails) {
         push: _push,
         pop: _pop,
         isEmpty: _isEmpty,
+        isReady: _isReady,
     }
 
     function _initQueues() {
@@ -136,6 +137,10 @@ module.exports = function (sails) {
             });
     }
 
+    function _isReady(qname) {
+        return !!queues[qname];
+    }
+    
     function _isEmpty(qname) {
         let queue = queues[qname];
         if (!queue) {
